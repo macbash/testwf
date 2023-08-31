@@ -23,6 +23,9 @@ jobs:
       - name: Run a one-line script
         id: run1
         run: exit 1
+      - name: positive
+        if: failure()
+        run: echo "without incl.steps "
       - name: failure
         if:  ${{ failure() && steps.run1.conclusion == 'failure' }}
         run: echo "Workflow Failed"
