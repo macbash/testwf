@@ -24,6 +24,6 @@ jobs:
         id: run1
         run: exit 1
       - name: failure
-        if:  ${{ steps.run1.conclusion == 'failure' }}
+        if:  ${{ failure() && steps.run1.conclusion == 'failure' }}
         run: echo "Workflow Failed"
 
